@@ -10,14 +10,14 @@ namespace Client {
     sealed class EcsStartup : MonoBehaviour {
         EcsWorld _world;        
         IEcsSystems _systems;
-        [SerializeField] private Text coinCounter, testValue, winScore, loseScore;
+        [SerializeField] private Text coinCounter, testValue, winScore, loseScore, targetText, lvlText;
         [SerializeField] private GameObject gameOverPanel, playerWonPanel, coinParticles, obstacleParticles;
         [SerializeField] private GameObject[] platforms;
         [SerializeField] private AnimationClip runAnim, jumpAnim, fallAnim;
         [SerializeField] private AudioSource coinSFX, obstacleSFX;
         [SerializeField] EcsUguiEmitter _uguiEmitter;
         void Start () {
-
+            PlayerPrefs.SetInt("Lvl", 1);
             var gameData = new GameData();
             //var timeComp = new TimeComponent();
             //anims
@@ -28,6 +28,8 @@ namespace Client {
             gameData.coinCounter = coinCounter;
             gameData.winScore = winScore;
             gameData.loseScore = loseScore;
+            gameData.targetText = targetText;
+            gameData.lvlText = lvlText;
             gameData.platforms = platforms;
             gameData.testValue = testValue;
             gameData.coinParticles = coinParticles;
@@ -96,13 +98,24 @@ namespace Client {
             }
         }
 
-        public void ExitGame()
-        {
-            Application.Quit();
-        }
+        
         public void ReloadScene()
         {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        
+
+        public void LoadMainMenuScene()
+        {
             SceneManager.LoadScene(0);
+        }
+
+        public void IncreaseLevel()
+        {
+            int lvl = PlayerPrefs.GetInt("Lvl") + 1;
+            PlayerPrefs.SetInt("Lvl", lvl);
+            Debug.Log(PlayerPrefs.GetInt("Lvl"));
         }
     }
 }

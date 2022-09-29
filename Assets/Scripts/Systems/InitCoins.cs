@@ -16,7 +16,7 @@ namespace Client
 
             gameData.CoinsAmount = 0;
             gameData.platformsAmount = gameData.platforms.Length;
-            gameData.CoinsAmountTarget = 100;
+            gameData.CoinsAmountTarget = 100 * (PlayerPrefs.GetInt("Lvl") / 2);
 
             foreach (GameObject coin in coins)
             {

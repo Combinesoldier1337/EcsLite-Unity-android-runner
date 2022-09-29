@@ -9,7 +9,7 @@ namespace Client
 {
     public class GameData
     {
-        public Text coinCounter, winScore, loseScore;
+        public Text coinCounter, winScore, loseScore, targetText, lvlText;
         public Text testValue;
         public GameObject[] platforms;
         public GameObject playerWonPanel, gameOverPanel, coinParticles, obstacleParticles;

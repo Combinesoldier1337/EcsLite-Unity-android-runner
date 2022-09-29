@@ -38,6 +38,7 @@ namespace Client
                         gameData.obstacleSFX.Play();
 
                         ref var playerComp = ref viewPool.Get(playerEntity);
+                        playerComp.transform.position -= Vector3.forward * .2f;
                         playerComp.transform.GetChild(0).GetComponent<Animator>().SetFloat("Blend", 1);
                     }
                     if (gameData.CoinsAmount < 0)
