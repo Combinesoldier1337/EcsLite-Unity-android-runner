@@ -1436,7 +1436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5283019, g: 0.45181808, b: 0.3314347, a: 1}
+  m_Color: {r: 0.47011858, g: 0.445533, b: 0.759, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
@@ -3514,6 +3514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curveClampAmount: -0.0026
+  wave: 0
 --- !u!1 &1200045917
 GameObject:
   m_ObjectHideFlags: 0

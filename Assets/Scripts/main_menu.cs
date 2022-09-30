@@ -40,6 +40,7 @@ public class main_menu : MonoBehaviour
 
     public void ResetProgressData()
     {
-        PlayerPrefs.SetInt("Lvl", 0);
+        PlayerPrefs.SetInt("Lvl", 1);
+        PlayerPrefs.Save();
     }
 }

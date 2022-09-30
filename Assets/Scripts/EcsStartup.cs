@@ -16,8 +16,7 @@ namespace Client {
         [SerializeField] private AnimationClip runAnim, jumpAnim, fallAnim;
         [SerializeField] private AudioSource coinSFX, obstacleSFX;
         [SerializeField] EcsUguiEmitter _uguiEmitter;
-        void Start () {
-            PlayerPrefs.SetInt("Lvl", 1);
+        void Start () {            
             var gameData = new GameData();
             //var timeComp = new TimeComponent();
             //anims
@@ -68,6 +67,11 @@ namespace Client {
                 .Inject()
                 .InjectUgui(_uguiEmitter, Constants.Worlds.Events)
                 .Init();
+
+            if (PlayerPrefs.GetInt("Lvl") < 1)
+            {
+                PlayerPrefs.SetInt("Lvl", 1);
+            }
         }
 
         void Update () {
@@ -115,6 +119,7 @@ namespace Client {
         {
             int lvl = PlayerPrefs.GetInt("Lvl") + 1;
             PlayerPrefs.SetInt("Lvl", lvl);
+            PlayerPrefs.Save();
             Debug.Log(PlayerPrefs.GetInt("Lvl"));
         }
     }
